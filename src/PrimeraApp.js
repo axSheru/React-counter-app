@@ -1,8 +1,6 @@
 import React, { Fragment } from 'react';
 //Functional Component.
-const PrimeraApp = () => {
-
-    const saludo = 'Hola mundo const';
+const PrimeraApp = ({ saludo = "Hola default" }) => {
 
     return(
         <>
