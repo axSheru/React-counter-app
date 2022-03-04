@@ -23,4 +23,22 @@ describe('Pruebas en PrimeraApp.', () => {
 
     });
 
+    test('debe de mostrar el subtítulo enviado por las props.', () => {
+
+        const saludo = 'Hola, soy Luke!';
+        const subtitulo = 'Soy un Jedi como mi padre antes de mí.';
+
+        const wrapper = shallow(
+            <PrimeraApp
+                saludo={ saludo }
+                subtitulo={ subtitulo }
+            />
+            );
+        
+        const textoParrafo = wrapper.find( 'p' ).text();
+
+        expect( textoParrafo ).toBe( subtitulo );
+
+    });
+
 });
