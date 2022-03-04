@@ -47,4 +47,16 @@ describe('Pruebas en CounterApp component.', () => {
 
     });
 
+    test('debe de resetear el valor de counter al default al presionar reset.', () => {
+
+        wrapper.find( 'button' ).at(2).simulate( 'click');
+        let valor = wrapper.find( 'h2' ).text();
+        expect( valor ).toBe( '11' );
+
+        wrapper.find( 'button' ).at(1).simulate( 'click');
+        valor = wrapper.find( 'h2' ).text();
+        expect( valor ).toBe( '12' );
+
+    });
+
 });
