@@ -37,4 +37,14 @@ describe('Pruebas en CounterApp component.', () => {
 
     });
 
+    test('debe de decrementar el counter en 1 al hacer click al -1', () => {
+
+        wrapper.find( 'button' ).at(2).simulate( 'click');
+
+        const valor = wrapper.find( 'h2' ).text();
+
+        expect( valor ).toBe( '11' );
+
+    });
+
 });
