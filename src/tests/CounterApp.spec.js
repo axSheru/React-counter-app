@@ -3,9 +3,15 @@ import CounterApp from "../CounterApp";
 
 describe('Pruebas en CounterApp component.', () => {
 
+    let wrapper;
+
+    beforeEach(() =>{
+        wrapper = shallow( <CounterApp /> );
+    });
+
     test('debe de hacer match con el snapshot.', () => {
 
-        const wrapper = shallow( <CounterApp /> );
+        
 
         expect( wrapper ).toMatchSnapshot();
 
@@ -17,7 +23,17 @@ describe('Pruebas en CounterApp component.', () => {
 
         const valor = wrapper.find( 'h2' ).text();
 
-        expect( valor ).toContain( '100' );
+        expect( valor ).toBe( '100' );
+
+    });
+
+    test('debe de incrementar el counter en 1 al hacer click al +1', () => {
+
+        wrapper.find( 'button' ).at(0).simulate( 'click');
+
+        const valor = wrapper.find( 'h2' ).text();
+
+        expect( valor ).toBe( '13' );
 
     });
 
